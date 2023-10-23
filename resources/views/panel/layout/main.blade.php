@@ -2,45 +2,47 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="description" content="description">
-  <meta name="keywords" content="meta_keywords">
-  <meta name="author" content="Ashish Kumar">
-  <meta name='subject' content='Streaming'>
-  <meta name='copyright' content='theashishkumar.in'>
-  <meta name='language' content='IN'>
-  <meta name='topic' content='Entertainment'>
-  <meta name='designer' content='Ashish'>
-  <meta name='owner' content='Ashish'>
-  <meta name='url' content='site_url'>
-  <meta name="og:title" content="OG title" />
-  <meta name="og:type" content="" />
-  <meta name="og:url" content="site_url" />
-  <meta name="og:site_name" content="MyFlix" />
-  <meta name="og:description" content="description" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Page Title</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{ asset('assets/vendors/tagify/tagify@4.17.8_dist_tagify.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/jvectormap/jquery-jvectormap.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/JqueryToaster/jquery.toast.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/vendors/switchery/switchery.css') }}">
-  <!-- End plugin css for this page -->
-  <!-- Layout styles -->
-  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/external.css') }}">
-  <!-- End layout styles -->
-  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
+    <meta name="keywords" content="meta_keywords">
+    <meta name="author" content="{{ env('AUTHOR_NAME') }}">
+    <meta name='subject' content='Streaming'>
+    <meta name='author_email' content='{{ env('AUTHOR_EMAIl') }}'>
+    <meta name='language' content='IN'>
+    <meta name='topic' content='Entertainment'>
+    <meta name='designer' content='{{ env('AUTHOR_NAME') }}'>
+    <meta name='owner' content='{{ env('SITE_OWNER') }}'>
+    <meta name='url' content='{{ env('APP_URL') }}'>
+    <meta name="og:title" content="{{ env('APP_NAME') }}" />
+    <meta name="og:type" content="" />
+    <meta name="og:url" content="{{ env('APP_URL') }}" />
+    <meta name="og:site_name" content="{{ env('APP_NAME') }}" />
+    <meta name="og:description" content="{{ env('APP_DESCRIPTION') }}" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@stack('title') | {{ env('APP_NAME') }}</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/tagify/tagify@4.17.8_dist_tagify.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/jvectormap/jquery-jvectormap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/JqueryToaster/jquery.toast.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/switchery/switchery.css') }}">
+    <!-- End plugin css for this page -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/external.css') }}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+    @yield('push-head')
+
 </head>
 
 <body>
@@ -57,6 +59,8 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     
+                    @yield('content')
+                    
                 </div>
             </div>
             {{-- partial --}}
@@ -67,6 +71,9 @@
 </div>
 
 <!-- container-scroller -->
+@yield('push-script')
+
+
 <!-- plugins:js -->
 <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
 <!-- endinject -->
