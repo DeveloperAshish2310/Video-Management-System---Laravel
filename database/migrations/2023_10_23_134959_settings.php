@@ -15,9 +15,9 @@ class Settings extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $$table->string('key')->nullable();
-            $$table->string('value')->nullable();
-            $$table->string('group_name')->nullable();
+            $table->string('key')->nullable();
+            $table->string('value')->nullable();
+            $table->string('group_name')->nullable();
         });
     }
 

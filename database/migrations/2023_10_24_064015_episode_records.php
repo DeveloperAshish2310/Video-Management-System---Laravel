@@ -13,7 +13,7 @@ class EpisodeRecords extends Migration
      */
     public function up()
     {
-        Schema::create('show_record',function (Blueprint $table){
+        Schema::create('episode_record',function (Blueprint $table){
             $table->id();
 
             $table->string('name');
