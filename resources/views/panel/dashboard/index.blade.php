@@ -14,7 +14,7 @@
                 <img src="assets/images/dashboard/Group126@2x.png" class="gradient-corona-img img-fluid" alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">Welcome Mr. (Name of The User)</h4>
+                <h4 class="mb-1 mb-sm-0">Welcome Mr.  {{ Auth()->user()->name ?? '' }} </h4>
                 <p class="mb-0 font-weight-normal d-none d-sm-block">Check out Your Task List For Know What You Have to Do  !</p>
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
@@ -54,7 +54,7 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0"> (Movie Record) </h3>
+                  <h3 class="mb-0"> {{ $movie_records }} </h3>
                   <!-- <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p> -->
                 </div>
               </div>
@@ -74,8 +74,8 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0"> (Show Record) </h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium"> (No. of Episode) </p>
+                  <h3 class="mb-0"> {{ $show_records }} </h3>
+                  <p class="text-success ml-2 mb-0 font-weight-medium"> {{ $episode_records }} </p>
                 </div>
               </div>
               <div class="col-3">
@@ -94,7 +94,7 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0"> {No. of User} </h3>
+                  <h3 class="mb-0"> {{ count($users) }} </h3>
                 </div>
               </div>
               <div class="col-3">
@@ -138,41 +138,48 @@
                 </thead>
                 <tbody>
 
-                  <tr>
-                    <!-- <td>
-                      <div class="form-check form-check-muted m-0">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input">
-                        </label>
-                      </div>
-                    </td> -->
-                    <td>
-                      <img src="#" alt="image" />
-                      <span class="pl-2">
-                        <a href="#edituser" class="text-light"> 
-                          (User ka Naam)
-                        </a>
-                      </span>
-                    </td>
-                    <td> 
-                        (Email)
-                    </td>
-                    <td> (Watched Shows) </td>
-                    <td> (watched Movies) </td>
-                    <td> (Username) </td>
-                    <td> (Registration Date) </td>
-                    <td>
-                        <div class='badge badge-outline-success'>
-                            Approved
-                        </div>
-                        <div class='badge badge-outline-warnning'>
-                            Pending
-                        </div>
-                        <div class='badge badge-outline-danger'>
-                            Rejected
-                        </div>
-                    </td>
-                  </tr>
+                  
+                  @forelse ($users as $item)
+                    <tr>
+                      <td>
+                        <img src="https://picsum.photos/200" alt="image" />
+                        <span class="pl-2">
+                          <a href="#edituser" class="text-light"> 
+                            {{ $item->name }}
+                          </a>
+                        </span>
+                      </td>
+                      <td> 
+                        {{ $item->email }}
+                      </td>
+                      <td> {{ count(json_decode($item->show_history) ?? []) }} </td>
+                      <td> {{ count(json_decode($item->movie_history) ?? []) }} </td>
+                      <td> {{ $item->username }} </td>
+                      <td> {{ $item->created_at }} </td>
+                      <td>
+                        @if ($item->allow_access == 1)
+                          <div class='badge badge-outline-success'>
+                              Approved
+                          </div>
+                        @elseif($item->allow_access == 2)
+                          <div class='badge badge-outline-danger'>
+                              Rejected
+                          </div>
+                        @else
+                          <div class='badge badge-outline-warning'>
+                              Pending
+                          </div>
+                        @endif
+                        
+                      </td>
+                    </tr>
+                  
+                  @empty
+                  
+                  @endforelse
+                  
+                  
+                
 
                 </tbody>
               </table>
