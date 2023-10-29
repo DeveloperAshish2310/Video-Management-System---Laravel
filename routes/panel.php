@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 // ` This is Used to Making Routes For Admin Panel
 
-Route::group(['prefix' => 'panel', 'as' => 'panel.'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'panel', 'as' => 'panel.'], function () {
     Route::get('/',[PanelController::class,'index'])->name('home');
 
 
@@ -38,6 +38,8 @@ Route::group(['prefix' => 'panel', 'as' => 'panel.'], function () {
     //` For Users
     Route::group(['prefix' => 'users', 'as' => 'users.'],function() {
         Route::get('/',[UserController::class,'index'])->name('index');
+        Route::get('/edit/{user}',[UserController::class,'edit'])->name('edit');
+        Route::post('/update/{user}',[UserController::class,'update'])->name('update');
         
     });
 

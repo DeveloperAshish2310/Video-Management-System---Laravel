@@ -22,8 +22,8 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Username</h5>
-              <span>Gold Member</span>
+              <h5 class="mb-0 font-weight-normal"> {{ Auth()->user()->username ?? '' }} </h5>
+              <span>{{ AuthRole() }}</span>
             </div>
           </div>
           <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>

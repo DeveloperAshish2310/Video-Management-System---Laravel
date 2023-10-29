@@ -1,5 +1,13 @@
 <?php
 
+
+function  AuthRole(){
+    $user = auth()->user();
+    return $user->role;
+}
+
+
+
 if (!function_exists('magicstring')) {
     function magicstring($str){
         echo "<pre>";

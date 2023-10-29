@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
+    public function home() {        
+        if (AuthRole() == 'Admin') {
+           return redirect('/panel');
+        }else{
+           return redirect('/');
+        }
+    }
+    
+    
     public function index() {
         
 
-        echo "This is a Function for Website Routes";
-        return;
+        return view('index');
     }
 }

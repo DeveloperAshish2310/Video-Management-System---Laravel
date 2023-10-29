@@ -71,7 +71,6 @@
 </div>
 
 <!-- container-scroller -->
-@yield('push-script')
 
 
 <!-- plugins:js -->
@@ -110,8 +109,9 @@
 <!-- Custom js for this page -->
 <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 <!-- End custom js for this page -->
+@include('panel.layout.script')
 
-
+@yield('push-script')
 
 </body>
 </html>

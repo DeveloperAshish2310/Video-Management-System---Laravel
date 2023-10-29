@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Episoderecord extends Model
 {
     use HasFactory;
+    protected $table = 'episode_record';
+
 }
