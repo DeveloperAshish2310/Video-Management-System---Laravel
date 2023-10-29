@@ -8,7 +8,9 @@
       </a>
       <a class="sidebar-brand brand-logo-mini" href="#">
         <!-- <img src="assets/images/logo-mini.svg" alt="logo" /> -->
-        <h1 class="text-light">L</h1>
+        <h1 class="text-light">
+          {{ ENV('APP_NAME')[0] }}
+        </h1>
       </a>
     </div>
     <ul class="nav">
@@ -42,15 +44,15 @@
       <li class="nav-item nav-category">
         <span class="nav-link">Navigation</span>
       </li>
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="index.php">
+      <li class="nav-item menu-items {{ ActiveRoute(['panel.home'],'active') }}">
+        <a class="nav-link" href="{{ route('panel.home') }}">
           <span class="menu-icon">
             <i class="mdi mdi-speedometer"></i>
           </span>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
-      <li class="nav-item menu-items">
+      <li class="nav-item menu-items {{ ActiveRoute(['panel.store.movie.manage','panel.store.show.manage','panel.store.episode.manage'],'active') }}">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
             <i class="mdi mdi-laptop"></i>
@@ -58,16 +60,16 @@
           <span class="menu-title">Manage Content</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse {{ ActiveRoute(['panel.store.movie.manage','panel.store.show.manage','panel.store.episode.manage'],'show') }}" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="manage_movie.php">Movies</a></li>
-            <li class="nav-item"> <a class="nav-link" href="manage_show.php">Shows</a></li>
-            <li class="nav-item"> <a class="nav-link" href="manage_episode.php">Episode</a></li>
+            <li class="nav-item"> <a class="nav-link {{ ActiveRoute(['panel.store.movie.manage'],'active') }}" href="{{ route('panel.store.movie.manage') }}">Movies</a></li>
+            <li class="nav-item"> <a class="nav-link {{ ActiveRoute(['panel.store.show.manage'],'active') }}" href="{{ route('panel.store.show.manage') }}">Shows</a></li>
+            <li class="nav-item"> <a class="nav-link {{ ActiveRoute(['panel.store.episode.manage'],'active') }}" href="{{ route('panel.store.episode.manage') }}">Episode</a></li>
           </ul>
         </div>
       </li>
   
-      <li class="nav-item menu-items">
+      <li class="nav-item menu-items {{ ActiveRoute(['panel.store.add.movie','panel.store.add.show','panel.store.add.episode'],'active') }}">
         <a class="nav-link" data-toggle="collapse" href="#add-content" aria-expanded="false" aria-controls="add-content">
           <span class="menu-icon">
             <i class="mdi mdi-laptop"></i>
@@ -75,18 +77,18 @@
           <span class="menu-title">Add Content</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="add-content">
+        <div class="collapse {{ ActiveRoute(['panel.store.add.movie','panel.store.add.show','panel.store.add.episode'],'show') }}" id="add-content">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="add_movies.php">Movies</a></li>
-            <li class="nav-item"> <a class="nav-link" href="add_show.php">Shows</a></li>
-            <li class="nav-item"> <a class="nav-link" href="add_episode.php">Episode</a></li>
+            <li class="nav-item"> <a class="nav-link {{ ActiveRoute(['panel.store.add.movie'],'active') }}" href="{{ route('panel.store.add.movie') }}">Movies</a></li>
+            <li class="nav-item"> <a class="nav-link {{ ActiveRoute(['panel.store.add.show'],'active') }}" href="{{ route('panel.store.add.show') }}">Shows</a></li>
+            <li class="nav-item"> <a class="nav-link {{ ActiveRoute(['panel.store.add.episode'],'active') }}" href="{{ route('panel.store.add.episode') }}">Episode</a></li>
           </ul>
         </div>
       </li>
   
   
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="users.php">
+      <li class="nav-item menu-items {{ ActiveRoute(['panel.users.index'],'active') }}">
+        <a class="nav-link" href="{{ route('panel.users.index') }}">
           <span class="menu-icon">
             <i class="mdi mdi-account-multiple-outline"></i>
           </span>
@@ -95,7 +97,7 @@
       </li>
   
       <li class="nav-item menu-items">
-        <a class="nav-link" href="todolist.php">
+        <a class="nav-link" href="#TodoList">
           <span class="menu-icon">
             <i class="mdi mdi-format-list-bulleted"></i>
           </span>
@@ -104,7 +106,7 @@
       </li>
   
       <li class="nav-item menu-items">
-        <a class="nav-link" href="settings.php">
+        <a class="nav-link" href="#settings">
           <span class="menu-icon">
             <i class="mdi mdi-settings"></i>
           </span>

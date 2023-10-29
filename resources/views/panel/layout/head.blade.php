@@ -1,6 +1,6 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+      <a class="navbar-brand brand-logo-mini" href="{{ route('panel.home') }}"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
       <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -19,7 +19,7 @@
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
             <h6 class="p-3 mb-0">Add</h6>
             <div class="dropdown-divider"></div>
-            <a href="add_movies.php" class="dropdown-item preview-item">
+            <a href="{{ route('panel.store.add.movie') }}" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                   <i class="mdi mdi-file-outline text-primary"></i>
@@ -30,7 +30,7 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="add_show.php" class="dropdown-item preview-item">
+            <a href="{{ route('panel.store.add.show') }}" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                   <i class="mdi mdi-web text-info"></i>
@@ -41,7 +41,7 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="add_episode.php" class="dropdown-item preview-item">
+            <a href="{{ route('panel.store.add.episode') }}" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                   <i class="mdi mdi-layers text-danger"></i>
@@ -55,7 +55,7 @@
           </div>
         </li>
         <li class="nav-item nav-settings d-none d-lg-block">
-          <a class="nav-link" href="todolist.php" title="Manage Todo List">
+          <a class="nav-link" href="#TodoList" title="Manage Todo List">
             <i class="mdi mdi-view-grid"></i>
           </a>
         </li>

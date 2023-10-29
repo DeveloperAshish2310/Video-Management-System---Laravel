@@ -7,3 +7,12 @@ if (!function_exists('magicstring')) {
         echo "</pre>";
     }
 }
+
+if (!function_exists('ActiveRoute')) {
+    function ActiveRoute($arr,$result) {
+        $cur_route = request()->route()->getName();
+        if (in_array($cur_route,$arr)) {
+            return $result;
+        }
+    }
+}

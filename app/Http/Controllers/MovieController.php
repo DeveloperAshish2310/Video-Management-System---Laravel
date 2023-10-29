@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function index() {
-
-        echo "Movie Index Page.";
+    public function index(Request $request) {
         return view('panel.movie.index');
+    }
+    
+    public function addindex() {
+        return view('panel.movie.add');
     }
 }
