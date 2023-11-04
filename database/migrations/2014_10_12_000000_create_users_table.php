@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->longText('added_show')->nullable()->comment('Store added Show');
             $table->string('Favourite')->nullable();
             $table->ipAddress('last_login_id')->nullable();
-            $table->integer('allow_access')->default(0)->comment('0 is for No Access; 1 is for Access.');
+            $table->integer('allow_access')->default(0)->comment('0 is for No Access; 1 is for Access; 2 is for Rejected');
             $table->integer('warnings')->default(0)->comment('Store Numbe rof Warning');
             $table->string('role')->default('User')->comment('Store Role of The User.');
             $table->string('tmdb_api_key')->nullable()->comment('Store tmdb Api key for Admin Role Only');

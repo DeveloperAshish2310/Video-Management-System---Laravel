@@ -3,6 +3,7 @@
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PanelController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\StoreItemController;
 use App\Http\Controllers\UserController;
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth', 'prefix' => 'panel', 'as' => 'panel.'], function () {
     Route::get('/',[PanelController::class,'index'])->name('home');
-
 
     //` Route Group For Storing Data
     Route::group(['prefix' => 'store' ,'as' => 'store.'],function(){    
@@ -43,6 +43,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel', 'as' => 'panel.'], fu
         
     });
 
+    Route::group(['prefix' => 'settings','as' => 'settings.'],function(){
+
+        Route::get('/',[SettingController::class,'index'])->name('index');
+        Route::post('settings/update',[SettingController::class,'update'])->name('update');
+    });
+    
+    Route::group(['prefix' => 'videoHost','as' => 'videoHost.'],function(){
+        Route::get('/',[SettingController::class,'videohost'])->name('index');
+
+        Route::get('/create',[SettingController::class,'videohost'])->name('index');
+        Route::get('/set/default/{fid}/{action}',[SettingController::class,'setdefault'])->name('setdefault');
+        Route::post('/update',[SettingController::class,'videohostUpdate'])->name('update');
+        
+    });
     
     
     

@@ -105,13 +105,23 @@
         </a>
       </li>
   
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="#settings">
+      <li class="nav-item menu-items  {{ ActiveRoute(['panel.settings.index'],'active') }}">
+        <a class="nav-link" href="{{ route('panel.settings.index') }}">
           <span class="menu-icon">
             <i class="mdi mdi-settings"></i>
           </span>
           <span class="menu-title">settings</span>
         </a>
       </li>
+      
+      <li class="nav-item menu-items {{ ActiveRoute(['panel.videoHost.index'],'active') }}">
+        <a class="nav-link" href="{{ route('panel.videoHost.index') }}">
+          <span class="menu-icon">
+            <i class="mdi mdi-settings"></i>
+          </span>
+          <span class="menu-title">Video Host</span>
+        </a>
+      </li>
+
     </ul>
   </nav>

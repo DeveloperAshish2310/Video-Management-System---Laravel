@@ -8,6 +8,7 @@ use App\Models\Showrecord;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
 class PanelController extends Controller
 {
     public function index() {
@@ -19,4 +20,7 @@ class PanelController extends Controller
 
         return view('panel.dashboard.index',compact('users','movie_records','show_records','episode_records'));
     }
+
+
+    
 }
