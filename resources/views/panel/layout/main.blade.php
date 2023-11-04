@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
-    <meta name="keywords" content="meta_keywords">
+    <meta name="keywords" content="{{ getConfig('meta_keyword')->value }}">
     <meta name="author" content="{{ env('AUTHOR_NAME') }}">
     <meta name='subject' content='Streaming'>
     <meta name='author_email' content='{{ env('AUTHOR_EMAIl') }}'>

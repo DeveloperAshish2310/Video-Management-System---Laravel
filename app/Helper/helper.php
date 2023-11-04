@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\Settings;
 
 function  AuthRole(){
     $user = auth()->user();
     return $user->role;
 }
 
+function getConfig($key){
+    return Settings::where('key',$key)->first();
+}
 
 
 if (!function_exists('magicstring')) {

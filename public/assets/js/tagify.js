@@ -1,4 +1,4 @@
-var input = document.querySelector('input[name="tags"]');
+var input = document.querySelector('#tags');
 
 var whitelist = ["Entertainment","MyFlix","Netflix","Amazon Prime Videos","Youtube","Ashish","Movies","Shows","Anime"];
 
