@@ -19,6 +19,8 @@ class MovieRecords extends Migration
             $table->string('tmdb_id');
             $table->string('video_code')->nullable();
             $table->longText('movie_details')->nullable();
+            $table->string('poster_path')->nullable();
+            $table->string('backdrop_path')->nullable();
             $table->integer('likes')->default(0);
             $table->integer('dislikes')->default(0);
             $table->integer('view_count')->default(0);
@@ -28,10 +30,10 @@ class MovieRecords extends Migration
             $table->string('credit')->nullable();
             $table->string('stats')->nullable();
             $table->string('language')->nullable();
-            $table->longText('video_details');     
-            $table->string('misc_details')->comment('Store Misc. Details of Movie.');
+            $table->longText('video_details')->nullable();
+            $table->string('misc_details')->comment('Store Misc. Details of Movie.')->nullable();
+            $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
-
         });
     }
 

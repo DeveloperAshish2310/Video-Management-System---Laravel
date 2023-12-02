@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/external.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
-    @yield('push-head')
+@yield('push-head')
 
 </head>
 
@@ -94,7 +94,6 @@
 <script src="{{ asset('assets/js/misc.js') }}"></script>
 <script src="{{ asset('assets/js/settings.js') }}"></script>
 <script src="{{ asset('assets/js/todolist.js') }}"></script>
-<script src="{{ asset('assets/js/addshow.js') }}"></script>
 <script src="{{ asset('assets/js/episodes.js') }}"></script>
 <script src="{{ asset('assets/js/tagify.js') }}"></script>
 <script src="{{ asset('assets/js/file-upload.js') }}"></script>

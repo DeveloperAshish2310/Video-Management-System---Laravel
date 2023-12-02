@@ -40,7 +40,7 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="meta_keyword">Meta Keywords</label>
-                                <input name='meta_keyword' class='form-control h-100 tagify' id="tags" placeholder='write some tags' value='{{ getConfig('meta_keyword')->value }}'>
+                                <input name='meta_keyword' class='form-control h-100 tagify' id="tags" placeholder='write some tags' value='{{ getConfig("meta_keyword")->value }}'>
                             </div>
                         </div>
                     </div>  
@@ -56,7 +56,7 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="meta_keyword">TMDB API</label>
-                                <input name='tmdb_api' class='form-control h-100 tagify' id="meta_keyword" placeholder='write some tags' value='{{ getConfig('tmdb_api')->value }}'>
+                                <input name='tmdb_api' class='form-control h-100 tagify' id="meta_keyword" placeholder='write some tags' value='{{ getConfig("tmdb_api")->value }}'>
                             </div>
                         </div>
                     </div>  

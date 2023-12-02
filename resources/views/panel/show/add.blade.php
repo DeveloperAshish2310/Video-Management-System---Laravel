@@ -10,8 +10,9 @@
             <div class="card-body">
                 <h4 class="card-title"> Add Show </h4>
                 <p class="card-description"> Add Show Mannually </p>
-                <form method="post" action="" enctype="multipart/form-data">
-                    <input type="hidden" id="tmdb_id" value="Add_YOUR_TMDB_ID">
+                <form method="post" action="{{ route('panel.store.add.show') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" id="tmdb_id" value="{{ getConfig('tmdb_api')->value }}">
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
@@ -112,11 +113,12 @@
             </div>
         </div>
     </div>
-
-
-
-
-
+    
 </div>
     
+
+@section('push-script')
+<script src="{{ asset('assets/js/addshow.js') }}"></script>
+@endsection
+
 @endsection

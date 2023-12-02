@@ -117,7 +117,7 @@
       <li class="nav-item menu-items {{ ActiveRoute(['panel.videoHost.index'],'active') }}">
         <a class="nav-link" href="{{ route('panel.videoHost.index') }}">
           <span class="menu-icon">
-            <i class="mdi mdi-settings"></i>
+            <i class="mdi mdi-buffer"></i>
           </span>
           <span class="menu-title">Video Host</span>
         </a>

@@ -22,10 +22,15 @@ class ShowRecords extends Migration
             $table->integer('dislike')->default(0);
             $table->integer('view_count')->default(0);
             $table->string('category')->comment('store category in Json');
+            $table->string('poster_path')->comment('Store Show Poster')->nullable();
+            $table->string('thumbnail_url')->comment('Store Show Poster')->nullable();
+            $table->string('credit')->nullable();
+            $table->string('stats')->nullable();
             $table->integer('status')->comment('0 is for Unpublis; 1 is for Publish');
             $table->longText('show_details')->comment('Store Additional Details of Show.');
-            $table->string('uploader_details');
-            $table->string('misc_details')->comment('Store Misc. Details of Show.');
+            $table->string('uploader_details')->nullable();
+            $table->string('misc_details')->comment('Store Misc. Details of Show.')->nullable();
+            $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
