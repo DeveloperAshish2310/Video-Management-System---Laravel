@@ -41,7 +41,34 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
+
+        // Dump Data Admin
+        DB::table('users')->insert([
+            'name' => 'Super Admin',
+            'username' => 'super_Admin',
+            'email' => 'admin@test.com',
+            'password' => bcrypt('123'),
+            'username_change_limit' => 0,
+            'role' => 'Admin',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Dump Data User
+        DB::table('users')->insert([
+            'name' => 'user',
+            'username' => 'user',
+            'email' => 'user@test.com',
+            'password' => bcrypt('123'),
+            'username_change_limit' => 10,
+            'role' => 'User',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
     }
+
+    
 
     /**
      * Reverse the migrations.

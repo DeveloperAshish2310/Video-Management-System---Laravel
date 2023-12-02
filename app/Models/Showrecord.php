@@ -9,5 +9,6 @@ class Showrecord extends Model
 {
     use HasFactory;
     protected $table = 'show_record';
-    // protected $id = 'id';
+    protected $guarded = [];
+
 }

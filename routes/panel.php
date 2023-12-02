@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutosyncController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PanelController;
@@ -23,7 +24,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel', 'as' => 'panel.'], fu
         Route::get('manage/show',[ShowController::class,'index'])->name('show.manage');
         Route::get('manage/episdoe',[EpisodeController::class,'index'])->name('episode.manage');
         
-
         // For Adding Form View
         Route::get('/add/movie',[MovieController::class,'addindex'])->name('add.movie');
         Route::get('/add/show',[ShowController::class,'addindex'])->name('add.show');
@@ -32,6 +32,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel', 'as' => 'panel.'], fu
         Route::post('/add/movie',[StoreItemController::class,'StoreMovie'])->name('add.movie');
         Route::post('/add/show',[StoreItemController::class,'StoreShow'])->name('add.show');
         Route::post('/add/episode',[StoreItemController::class,'StoreEpisode'])->name('add.episode');
+
+        Route::get('/Movie-action/{action}/{movie}',[MovieController::class,'action'])->name('make.action');
+
+    });
+
+Route::group(['prefix' => 'autosync','as' => 'autosync.'],function(){
+        Route::get('movies/single/',[AutosyncController::class,'singleMovie'])->name('movie.single');
     });
 
 

@@ -14,6 +14,7 @@
         <a href="{{ route('logout') }}" class="btn btn-outline-primary">Logout</a>
         <a href="{{ route('login') }}" class="btn btn-outline-primary">Login</a>
         <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
+        <a href="{{ url('panel') }}" class="btn btn-outline-primary">Panel</a>
     </div>
 @endsection
 
