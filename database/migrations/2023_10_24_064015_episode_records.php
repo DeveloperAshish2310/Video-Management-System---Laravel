@@ -25,10 +25,12 @@ class EpisodeRecords extends Migration
             $table->integer('dislike')->default(0);
             $table->integer('view_count')->default(0);
             $table->integer('status')->comment('0 is for Unpublis; 1 is for Publish');
-            $table->string('skip_part')->comment('Store The Time to Give Skip Intro or Outro.');
+            $table->string('skip_part')->comment('Store The Time to Give Skip Intro or Outro.')->nullable();
             $table->string('uploader_details')->nullable();
             $table->longText('episode_details')->comment('Store Additional Details of episode.')->nullable();
             $table->string('misc_details')->comment('Store Misc. Details of episode.')->nullable();
+            $table->string('poster_path')->comment('Store Episode Poster.')->nullable();
+            $table->string('backdrop_path')->comment('Store Episode Backdrop Image.')->nullable();
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });

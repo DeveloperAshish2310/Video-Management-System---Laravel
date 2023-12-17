@@ -89,6 +89,9 @@
                                             <a href="{{ route('panel.videoHost.setdefault',[$folder['fld_id'],'move']) }}" class="btn btn-sm btn-outline-warning mx-1 @if (getConfig('video_folder_move_id')->value == $folder['fld_id'] ) active @endif">
                                                 Move
                                             </a>
+                                            <a href="{{ route('panel.videoHost.setdefault',[$folder['fld_id'],'episode']) }}" class="btn btn-sm btn-outline-danger mx-1 @if (getConfig('show_episode_folder_sync_id')->value == $folder['fld_id'] ) active @endif">
+                                                Episode
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

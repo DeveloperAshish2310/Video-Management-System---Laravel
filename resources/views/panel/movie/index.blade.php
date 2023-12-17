@@ -19,6 +19,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>TMDB</th>
+                <th>Part</th>
                 <th>VIDEO CODE</th>
                 <th>STATUS</th>
                 <th>ACTION</th>
@@ -30,7 +31,8 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $movie->name }}</td>
-                    <td>{{ $movie->tmdb_id }}</td>
+                    <td>{{ $movie->tmdb_id }}</td> 
+                    <td>{{ ($movie->part == 0) ? 'No Parts' : $movie->part }}</td> 
                     <td>{{ $movie->video_code }}</td>
                     <td>
                         @if ($movie->status == 1)

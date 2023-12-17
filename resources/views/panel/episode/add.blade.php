@@ -10,16 +10,20 @@
         <div class="card-body">
           <h4 class="card-title"> Add Episode </h4>
           <p class="card-description"> Add Episodes Mannually </p>
-          <form class="forms" method="POST" enctype="multipart/form-data">
+          <form class="forms" action="{{ route('panel.store.add.episode') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="row">
               <div class="col-md-6">
                   <div class="form-group">
                       <label for="tmdb_id"> Show TMDB ID </label>
                       <!-- <input type="text" class="form-control" id="tmdb_id" name="show_code" placeholder="Enter Show TMDB ID"> -->
                       <select class="js-example-basic-single" style="width:100%" name="show_code">
-                      <option value="" selected>Select Show</option>
-                        <option value="show_id">Show Name</option>
-
+                          <option>Select Show</option>
+                          @forelse ($show_names as $show_id => $show_name)
+                            <option value="{{ $show_id }}">{{ $show_name }}</option>
+                          @empty
+                            <option>No Episode Are Added</option>
+                          @endforelse
                       </select>
                   </div>
               </div>
@@ -27,7 +31,7 @@
               <div class="col-md-6">
                   <div class="form-group">
                       <label for="tmdb_id"> Season Number </label>
-                      <input type="text" class="form-control" id="tmdb_id" name="season_no" placeholder="Enter Show TMDB ID">
+                      <input type="text" class="form-control" id="tmdb_id" name="season_no" placeholder="Enter Show Season Number">
                   </div>
               </div>
             </div>
@@ -72,7 +76,7 @@
         <a href="https://www.themoviedb.org/" target="_blank" class="btn btn-social-icon-text btn-facebook" title="Open TMDb Website">
           <i class="mdi mdi-open-in-new "></i> Open TMDB
         </a>
-        <a href="syncEpisode.php?syncnow" target="_blank" class="btn btn-social-icon-text btn-youtube mx-2" title="Sync Files With StreamSb">
+        <a href="{{ route('panel.autosync.episode') }}" class="btn btn-social-icon-text btn-youtube mx-2" title="Sync Files With StreamSb">
           <i class="mdi mdi-cloud-sync "></i> Sync File With StreamWish
         </a>
     </div>

@@ -98,6 +98,11 @@ class SettingController extends Controller
                     $record->value = $fid;
                     $record->save();
                     break;  
+                case 'episode':
+                    $record = getConfig('show_episode_folder_sync_id');
+                    $record->value = $fid;
+                    $record->save();
+                    break;  
                 default:
                     return back()->with('error',"Invailed Action");
                     break;

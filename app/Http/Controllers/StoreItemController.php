@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Movierecord;
 use App\Models\Showrecord;
+use App\Models\Episoderecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class StoreItemController extends Controller
 {
-    public function StoreMovie(Request $request) {        
+    public function StoreMovie(Request $request) {
         try {
             $tmdb_record = getTMDB($request->tmdb_id,1);
             $uploader = array(
@@ -201,8 +202,78 @@ class StoreItemController extends Controller
 
     public function StoreEpisode(Request $request) {
         echo "Store Episode Route";
-        magicstring($request->all());
-        return;
 
+        try {
+            $count = 0;
+
+            // ` filter Array of Episode Code
+            $episode_codes = $request->get('epi_code');
+            $episode_codes = array_filter($episode_codes, function ($element) {
+                return $element != '';
+            });
+
+            // ` filter Array of Episode Number
+            $episode_numbers = $request->get('epi_number');
+            $episode_numbers = array_filter($episode_numbers, function ($element) {
+                return $element != '';
+            });
+
+            // check: Checking if Episode Code and Episode Number are equal
+            if (count($episode_codes) != count($episode_numbers)) {
+                return back()->with('error',"Episode Code and Episode Number are not equal");
+            }
+
+            
+            
+            // Start: Uploading Data
+            foreach ($episode_codes as $index => $epi_code) {
+                $tmdb = getTMDBEpisode($request->get('show_code'),$request->get('season_no'),$episode_numbers[$index],0,'tv');
+
+                $episode_details = [
+                    'release_date' => $tmdb->air_date,
+                    'runtime' => $tmdb->runtime,
+                    'overview' => $tmdb->overview,
+                    'vote_average' => $tmdb->vote_average
+                ];
+
+                $uploader = array(
+                    'uploader_name' => auth()->user()->name,
+                    'uploader_userid' => auth()->user()->id,
+                    'uploader_ip' => Request()->ip(),
+                );
+        
+                $uploader = json_encode($uploader);
+                $episode_details = json_encode($episode_details);
+                $record  = [
+                    'name' => $tmdb->name,
+                    'show_id' => $request->get('show_code'),
+                    'episode_number' => $episode_numbers[$index],
+                    'season_num' => $request->get('season_no'),
+                    'episode_code' => $epi_code,
+                    'like' => 0,
+                    'dislike' => 0,
+                    'view_count' => 0,
+                    'status' => 1,
+                    'skip_part' => null,
+                    'uploader_details' => $uploader,
+                    'episode_details' => $episode_details,
+                    'misc_details' => null,
+                    'poster_path' => $tmdb->still_path,
+                    'backdrop_path' => null,
+                ];
+
+                Episoderecord::create($record);
+                $count++;
+            }
+    
+            return back()->with('success',"Episode Uploaded SuccessFully. Total $count");
+
+        } catch (\Throwable $th) {
+            // throw $th;
+            return back()->with('error',"Error While Uploading.Contact Developer")->withInput($request->all());
+        }       
+
+
+        
     }
 }

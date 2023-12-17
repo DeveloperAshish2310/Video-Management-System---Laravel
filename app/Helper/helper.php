@@ -67,6 +67,22 @@ if (!function_exists('getTMDB')) {
     }
 }
 
+if (!function_exists('getTMDBEpisode')) {
+    function getTMDBEpisode($tmdbid,$season = 1,$episode = 1,$credit = 0,$type = 'movie') {
+        $api_key = getConfig('tmdb_api')->value;
+
+        if ($credit) {
+            $url = "https://api.themoviedb.org/3/tv/".$tmdbid."/season/".$season."/episode/".$episode."?api_key=".$api_key."&language=en-US&append_to_response=credits";
+        }else{
+            $url = "https://api.themoviedb.org/3/tv/".$tmdbid."/season/".$season."/episode/".$episode."?api_key=".$api_key."&language=en-US";
+        }
+        $reponse = Http::get($url);
+
+        // return ['url'=> $url,'response' => json_decode($reponse)];
+        return json_decode($reponse);
+    }
+}
+
 if (!function_exists('generateRandomCode')) {
     function generateRandomCode($length = 8) {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

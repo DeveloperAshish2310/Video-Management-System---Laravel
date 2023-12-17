@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home',[WebsiteController::class,'home'])->middleware(['auth'])->name('home');
 
 
-
 Route::get('/', [WebsiteController::class,'index'])->name('home');
+
 
 Route::group([], function () {
     require __DIR__.'/auth.php';

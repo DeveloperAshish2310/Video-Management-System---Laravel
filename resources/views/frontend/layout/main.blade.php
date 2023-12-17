@@ -17,6 +17,7 @@
 <body data-bs-theme="dark">
     
     <div class="app">
+        @include('frontend.layout.Navbar')
         @yield('content')
     </div>
 

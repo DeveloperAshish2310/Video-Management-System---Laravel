@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     public function index(Request $request) {
-        $movies = Movierecord::get();
+        $movies = Movierecord::orderBy('created_at','DESC')->orderBy('part','ASC')->get();
         
         return view('panel.movie.index',compact('movies'));
     }
