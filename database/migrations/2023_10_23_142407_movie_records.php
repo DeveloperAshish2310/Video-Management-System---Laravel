@@ -21,6 +21,7 @@ class MovieRecords extends Migration
             $table->longText('movie_details')->nullable();
             $table->string('poster_path')->nullable();
             $table->string('backdrop_path')->nullable();
+            $table->integer('part')->default(0)->comment('Store Total Number of Parts of Movie. If Movie is Not Parted Then Store 0.');
             $table->integer('likes')->default(0);
             $table->integer('dislikes')->default(0);
             $table->integer('view_count')->default(0);

@@ -34,11 +34,15 @@ Route::group(['middleware' => 'auth', 'prefix' => 'panel', 'as' => 'panel.'], fu
         Route::post('/add/episode',[StoreItemController::class,'StoreEpisode'])->name('add.episode');
 
         Route::get('/Movie-action/{action}/{movie}',[MovieController::class,'action'])->name('make.action');
+        Route::get('/show-action/{action}/{movie}',[ShowController::class,'action'])->name('show.make.action');
+        Route::get('/episode-action/{action}/{movie}',[EpisodeController::class,'action'])->name('episode.make.action');
 
     });
 
-Route::group(['prefix' => 'autosync','as' => 'autosync.'],function(){
+    Route::group(['prefix' => 'autosync','as' => 'autosync.'],function(){
         Route::get('movies/single/',[AutosyncController::class,'singleMovie'])->name('movie.single');
+        Route::get('movies/part/',[AutosyncController::class,'partMovie'])->name('movie.part');
+        Route::get('episode',[AutosyncController::class,'episode'])->name('episode');
     });
 
 

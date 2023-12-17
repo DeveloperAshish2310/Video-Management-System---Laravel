@@ -40,7 +40,7 @@
         <a href="{{ route("panel.autosync.movie.single") }}" target="_blank" class="btn btn-social-icon-text btn-youtube mx-2" title="Sync Files With StreamSb">
           <i class="mdi mdi-cloud-sync "></i> Sync Movie With StreamWish
         </a>
-        <a href="sync2part.php?syncNow" target="_blank" class="btn btn-social-icon-text btn-linkedin mx-2" title="Sync Movies With StreamSb">
+        <a href="{{ route('panel.autosync.movie.part') }}" target="_blank" class="btn btn-social-icon-text btn-linkedin mx-2" title="Sync Movies With StreamSb">
           <i class="mdi mdi-cloud-sync "></i> Sync Movie With StreamWish ( 2 Parts )
         </a>
     </div>

@@ -5,7 +5,7 @@
 @section('content')
   
     <div class="container">
-        <table class="table" border="1">
+        <table class="table">
             <thead>
                 <tr>
                     <th>#</th>
@@ -29,17 +29,24 @@
                         </td>
                         <td>
                             @if ($show->status == 1)
-                                <span class="badge badge-success">Active</span>
+                                <span class="badge badge-outline-success">Published</span>
                             @else 
-                                <span class="badge badge-danger">Inactive</span>
+                                <span class="badge badge-outline-danger">Unpublished</span>
                             @endif
                         </td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{ route('panel.store.show.make.action',['1',$show->id]) }}" class="btn btn-sm btn-rounded btn-outline-success mx-1">
+                                <i class="mdi mdi-eye" style="margin: 10px 0;"></i>
+                            </a>
+                            <a href="{{ route('panel.store.show.make.action',['0',$show->id]) }}" class="btn btn-sm btn-rounded btn-outline-warning mx-1">
+                                <i class="mdi mdi-eye-off" style="margin: 10px 0;"></i>
+                            </a>
+                            <a href="{{ route('panel.store.show.make.action',['2',$show->id]) }}" class="btn btn-sm btn-rounded btn-outline-danger mx-1">
+                                <i class="mdi mdi-delete" style="margin: 10px 0;"></i>
+                            </a>
                         </td>
                         <td>10</td>
-                        <td>{{ EpisodeCount($show->show_id) }}</td>
+                        <td>{{ EpisodeCount($show->tmdb_id) }}</td>
                     </tr>
                 @empty 
                     <tr>

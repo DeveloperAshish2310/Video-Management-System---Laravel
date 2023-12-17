@@ -58,8 +58,17 @@ class Settings extends Migration
                 'key' => 'video_folder_move_id',
                 'value' => '57794',
                 'group_name' => 'Global_config',
-            ]
-            
+            ],
+            [
+                'key' => 'show_episode_folder_sync_id',
+                'value' => '57794',
+                'group_name' => 'Global_config',
+            ],
+            [
+                'key' => 'part_sync_delimeter',
+                'value' => '^^',
+                'group_name' => 'Global_config',
+            ]            
             
         ]);
       
