@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-confirm/jquery-confirm.min.css') }}">
+    <!-- Include Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     @yield('push-style')
 </head>
 <body data-bs-theme="dark">
@@ -31,8 +33,23 @@
     <script src="{{ asset('assets/vendors/Jquery-toast/jquery.toast.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/jquery-confirm/jquery-confirm.min.js') }}"></script>
-
+    <!-- Include Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
     <script>
+
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 8,
+            spaceBetween: 2,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
 
         // Copy Text TO Clipboard
         function copyToClipboard(text) {

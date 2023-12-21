@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DevController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,5 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'developer', 'as' => 'dev.'], function () {
     Route::get('/', [DevController::class,'index'])->name('home');
+    Route::get('/buttons',[DevController::class, 'buttons'])->name('buttons');
 
+    Route::get('/thumbnail',[ImageController::class, 'generateThumbnailindex'])->name('buttons');
+    Route::post('/generate-thumbnail',[ImageController::class, 'generateThumbnail'])->name('buttons');
 });

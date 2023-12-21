@@ -65,6 +65,19 @@ class CreateUsersTable extends Migration
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        
+        DB::table('users')->insert([
+            'name' => 'Developer',
+            'username' => 'Dev',
+            'email' => 'dev@test.com',
+            'password' => bcrypt('123'),
+            'username_change_limit' => 100,
+            'role' => 'Dev',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+
 
     }
 
