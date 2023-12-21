@@ -18,9 +18,13 @@ class DevController extends Controller
 
 
         // return back()->with('error',"hello");
-    
-
-
         return;
     }
+
+    public function buttons(Request $request) {
+        return view('dev.buttons');
+    }
+
+
+
 }

@@ -3,6 +3,8 @@
 use App\Models\Settings;
 use App\Models\Episoderecord;
 use Illuminate\Support\Facades\Http;
+use Intervention\Image\Facades\Image;
+use App\Models\media;
 
 function  AuthRole(){
     $user = auth()->user();
@@ -98,5 +100,21 @@ if (!function_exists('EpisodeCount')) {
     function EpisodeCount($showid,$season = 1){
         $episodes = Episoderecord::where('season_num',$season)->where('show_id',$showid)->count();
         return $episodes;
+    }
+}
+
+
+if(!function_exists("generate_thumbnail")){
+    function generate_thumbnail($url,$height = 170,$width = 125){
+        try {
+            $image = Image::make($url);
+            $thumbnail = $image->resize($height, $width);
+
+            return  $thumbnail->encode('data-url');
+            // return response()->json(['thumbnail_url' => $thumbnail->encode('data-url')]);
+        } catch (\Exception $e) {
+            // Handle any exceptions
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }

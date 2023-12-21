@@ -20,6 +20,7 @@ Route::get('/home',[WebsiteController::class,'home'])->middleware(['auth'])->nam
 
 
 Route::get('/', [WebsiteController::class,'index'])->name('home');
+Route::get('/watchMovie/{tmdb_id}', [WebsiteController::class,'watchmovie'])->name('watch.movie');
 
 
 Route::group([], function () {

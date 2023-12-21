@@ -1,0 +1,345 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+body {
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #111 !important;
+    overflow: hidden !important;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    filter: none;
+}
+
+.navbar .logo img {
+    height: 60px;
+    margin: 5px;
+    z-index: 9999;
+
+}
+
+.mainbx .acc {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 20px;
+}
+
+.mainbx .acc a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.mainbx .acc i {
+    color: black;
+}
+
+.mainbx {
+    height: 100vh;
+    width: 100%;
+    z-index: 9999;
+}
+
+.mainbx .mana {
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    width: 500px;
+}
+
+.mainbx .category span {
+    margin: 5px;
+    font-size: small;
+    padding: 12px 20px;
+    background-color: rgba(14, 13, 13, 0.562);
+    border-radius: 20px;
+}
+
+.mainbx .category span a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.mainbx .mana .info {
+    margin-top: 15px;
+    font-size: 3.5em;
+    font-weight: 600 !important;
+}
+
+.mainbx .mana .action {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.mainbx .mana .action a {
+    border: 1px solid white;
+    width: fit-content;
+    padding: 6px 15px;
+    background-color: #fff;
+    border-radius: 20%;
+    height: fit-content;
+    margin: 0 8px 0 0;
+
+}
+
+.mainbx .mana .action i {
+    color: rgb(0, 0, 0);
+    font-size: 1.7em;
+}
+
+.mainbx .mana .rating {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.mainbx .mana .rating img {
+    height: 20px;
+    margin: 8px 0px;
+}
+
+.mainbx .mana .rating span {
+    margin-left: 5px;
+}
+
+.mainbx .mana .rating .userbtn{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 5px 10px 0px 10px;
+    margin: 0 3px;
+    transition: 0.3s;
+    border-radius: 10px;
+    font-size: 1.4em;
+    /* border: solid orangered 3px; */
+    text-align: center;
+}
+
+.mainbx .poster {
+    position: absolute;
+    right: 20px;
+    top: 30vh;
+    width: 500px;
+    text-align: right;
+}
+
+.mainbx .poster img {
+    height: 180px !important;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.mainbx .posterm {
+    position: absolute;
+    right: 20px;
+    bottom: 3vh;
+    width: 500px;
+    text-align: right;
+}
+
+.mainbx .posterm img {
+    height: 180px !important;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.resl {
+    margin-top: 70px;
+    margin-left: -50px;
+    display: flex;
+    align-items: center;
+}
+
+.resl img {
+    height: 80px;
+    border-radius: 10%;
+    margin-right: 5px;
+}
+
+.resl i {
+    margin-right: 5px;
+
+}
+
+.resl span {
+    margin: 8px;
+}
+
+.secondbx {
+    width: 100%;
+    height: 100vh;
+}
+
+.secondbx h4 {
+    margin: 0px 100px;
+    padding: 20px 0;
+    /* color: #000; */
+}
+
+.epi-list .ep a {
+    margin: 20px 10px;
+    display: flex;
+    color: #fff;
+    position: relative;
+    left: 10%;
+    text-decoration: none;
+}
+
+.epi-list .ep img {
+    height: 150px;
+    border-radius: 20px;
+    margin: 0 20px;
+}
+
+.epi-list .ep h5 {
+    margin: 10px 20px;
+    font-size: 2em;
+}
+
+
+.ashuhero {
+    margin-top: 55vh !important;
+    padding: 20px;
+}
+
+.dssd {
+    color: whitesmoke;
+    font-family: century;
+    font-size: 1.3rem;
+    padding: 8px;
+}
+
+.slider {
+    height: 100%;
+    width: 100%;
+}
+
+.slider .swiper-slide {
+    height: 150px;
+    width: 200px;
+    display: block;
+}
+
+.slider .swiper-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+details {
+    font-size: 1rem;
+    margin-top: 10px;
+    height: 100px;
+    overflow-y: auto;
+    word-spacing: 3px;
+}
+
+.num{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 2rem;
+    margin: 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff; 
+  }
+
+/* responsive code for mobile */
+@media only screen and (max-width:600px) {
+
+    .mainbx .mana {
+        position: absolute;
+        top: 20%;
+        left: 8%;
+        width: auto;
+    }
+
+    .mainbx .poster {
+        width: auto;
+        padding: 10px;
+        right: 10px;
+        bottom: 30px;
+        display: none;
+    }
+
+    .social {
+        right: 5%;
+    }
+
+    .resl {
+        margin-top: 30px;
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+    }
+
+    .resl img {
+        display: none;
+    }
+
+    .resl span {
+        margin: 5px;
+    }
+
+    .epi-list .ep img {
+        height: 80px;
+        margin: 5px;
+        border-radius: 20px;
+    }
+
+    .secondbx h4 {
+        margin: 20px 40px;
+    }
+
+    .epi-list .ep a {
+        margin: 10px;
+        display: flex;
+        color: #000;
+        position: relative;
+        left: 0%;
+    }
+
+    .epi-list .ep h5 {
+        font-size: 1em;
+    }
+
+    .slider .swiper-slide {
+        height: 125px;
+        display: block;
+    }
+}
