@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-confirm/jquery-confirm.min.css') }}">
+    {{-- Animated Modal --}}
+    <link rel="stylesheet" href="{{ asset('assets/vendors/animated-modal/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/animated-modal/css/normalize.min.css') }}">
     <!-- Include Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     @yield('push-style')
@@ -24,18 +27,20 @@
     </div>
 
 
-    @yield('push-script')
     
     
-    <script src="{{ asset('script.js') }}"></script>
     <script src="{{ asset('assets/vendors/Jquery/Jquery.min.js') }}"></script>
+    <script src="{{ asset('script.js') }}"></script>
     <script src="{{ asset('assets/vendors/select2/select2.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/Jquery-toast/jquery.toast.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/jquery-confirm/jquery-confirm.min.js') }}"></script>
     <!-- Include Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets/vendors/animated-modal/js/animatedModal.min.js') }}"></script>
     
+    @yield('push-script')
+
     <script>
 
         var swiper = new Swiper('.swiper-container', {

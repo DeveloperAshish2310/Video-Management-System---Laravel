@@ -108,7 +108,7 @@
             </div>
 
             <div class="action">
-                <a href="watchmovie.php?code=150" title="Play Movie Title">
+                <a href="#animatedModal" id="watchmovies" title="Play Movie Title">
                     <i class="bi bi-play-fill"></i>
                 </a>
                 <span>Watch Now</span>              
@@ -144,16 +144,34 @@
         </div>
 
         <div class="posterm">
-            <!-- <h3>One Piece Film: Red</h3> -->
+            {{-- <h3>One Piece Film: Red</h3> --}}
             <img src="{{ generate_thumbnail(getTMDBImage($movie->poster_path),100,150) }}" alt="Movie Poster">
         </div>
 
 
 
     </div>
+
+
+    @include('frontend.modal.movie')
 @endsection
 
 
 {{-- For Adding Script --}}
 @section('push-script')
+
+    <script>
+        $(document).ready(function () {
+            // Open Modal
+            $("#watchmovies").animatedModal();
+
+            // Restart Player on Model Close
+            $(".close-animatedModal").click(function (e) { 
+                var url = $("iframe").attr('src');
+                $("iframe").attr('src',url);
+            });
+
+        });
+    </script>
+    
 @endsection
